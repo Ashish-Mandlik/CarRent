@@ -1,0 +1,77 @@
+
+<div class="container">
+    <h2 class="mb-4 text-white">Update car</h2>
+
+    <form (ngSubmit)="onSubmit()" novalidate #carForm="ngForm">
+
+        <div class="form-group">
+            <label for="base_price">Base price:</label>
+            <input type="number" class="form-control" id="basePrice" name="basePrice" [(ngModel)]="car.basePrice"
+                required #baseP="ngModel">
+            <div *ngIf="!baseP.valid && (baseP.dirty || baseP.touched)" class="text-danger">
+                <span *ngIf="baseP.errors?.['required']">Base price is required.</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="car_license_number">Car license number:</label>
+            <input type="text" class="form-control" id="carLicenseNumber" name="carLicenseNumber"
+                [(ngModel)]="car.carLicenseNumber" required #carL="ngModel" pattern="[A-Z0-9]+">
+            <div *ngIf="!carL.valid && (carL.dirty || carL.touched)" class="text-danger">
+                <span *ngIf="carL.errors?.['required']">Car license number is required.</span>
+                <span *ngIf="carL.errors?.['pattern']">
+                    Car license number should contain only Capital letters and numbers.
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="manufacturer">Manufacturer:</label>
+            <input type="text" class="form-control" id="manufacturer" name="manufacturer" [(ngModel)]="car.manufacturer"
+                required #manu="ngModel" pattern="[A-Za-z]+">
+            <div *ngIf="!manu.valid && (manu.dirty || manu.touched)" class="text-danger">
+                <span *ngIf="manu.errors?.['required']">Manufacturer is required.</span>
+                <span *ngIf="manu.errors?.['pattern']">
+                    Manufacturer should contain only letters.
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="model">Model:</label>
+            <input type="text" class="form-control" id="model" name="model" [(ngModel)]="car.model" required
+                #model="ngModel" pattern="[A-Za-z]+">
+            <div *ngIf="!model.valid && (model.dirty || model.touched)" class="text-danger">
+                <span *ngIf="model.errors?.['required']">Manufacturer is required.</span>
+                <span *ngIf="model.errors?.['pattern']">
+                    Manufacturer should contain only letters.
+                </span>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="pph">Price per hour:</label>
+            <input type="number" class="form-control" id="pph" name="pph" [(ngModel)]="car.pph" required
+                #pph1="ngModel">
+            <div *ngIf="!pph1.valid && (pph1.dirty || pph1.touched)" class="text-danger">
+                <span *ngIf="pph1.errors?.['required']">Price per hour is required.</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="security_deposit">Security deposit:</label>
+            <input type="number" class="form-control" id="securityDeposit" name="securityDeposit"
+                [(ngModel)]="car.securityDeposit" required #sd="ngModel">
+            <div *ngIf="!sd.valid && (sd.dirty ||sd.touched)" class="text-danger">
+                <span *ngIf="sd.errors?.['required']">Price per hour is required.</span>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-12 text-center">
+                <button type="submit" class="btn btn-warning" [disabled]="!carForm.valid">Update Car</button>
+            </div>
+        </div>
+    </form>
+</div>

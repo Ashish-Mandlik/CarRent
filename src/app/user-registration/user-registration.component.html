@@ -1,0 +1,123 @@
+
+<div class="container ">
+    <h2 class="mb-4 text-white ">Register User</h2>
+    <form #updateForm="ngForm" (ngSubmit)="onSubmit(updateForm.value)">
+<!-- <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="hidden" class="form-control" id="id" #id="ngModel" name="id" [(ngModel)]="user.id" readonly>
+        </div> -->
+      <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" class="form-control" id="firstName" #firstName="ngModel" name="firstName" ngModel
+                required pattern="[A-Za-z]+">
+            <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="text-danger">
+                <span *ngIf="firstName.errors?.['required']">First Name is required.</span>
+                <span *ngIf="firstName.errors?.['pattern']">First Name should contain only letters.</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" class="form-control" id="lastName" #lastName="ngModel" name="lastName" ngModel required
+                pattern="[A-Za-z]+">
+            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="text-danger">
+                <span *ngIf="lastName.errors?.['required']">Last Name is required.</span>
+                <span *ngIf="lastName.errors?.['pattern']">Last Name should contain only letters.</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" #email="ngModel" name="email" ngModel required
+                pattern="^[a-zA-Z0-9._%+-]+@gmail.com$">
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                <span *ngIf="email.errors?.['email']">Invalid email address.</span>
+                <span *ngIf="email.errors?.['required']">Email is required.</span>
+                <span *ngIf="email.errors?.['pattern']">Only @gmail.com
+                    emails are allowed.</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" #password="ngModel" name="password" ngModel
+                required minlength="6" maxlength="12" pattern="^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[^\w\s]).{6,12}$">
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                <span *ngIf="password.errors?.['required']">Password is required.</span>
+                <span *ngIf="password.errors?.['minlength']">Password should have at least 6
+                    characters.<br></span>
+                <span *ngIf="password.errors?.['maxlength']">Password should have at most 12
+                    characters.<br></span>
+                <span *ngIf="password.errors?.['pattern']">Password should contain at least one uppercase
+                    letter, one symbol, and one number.</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="dateOfBirth">Date of Birth:</label>
+            <input type="date" class="form-control" id="dateOfBirth" #dateOfBirth="ngModel" name="dateOfBirth" ngModel
+                required>
+            <div *ngIf="dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched)" class="text-danger">
+                <span *ngIf="dateOfBirth.errors?.['required']">Date of Birth is required.</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" class="form-control" id="address" #address="ngModel" name="address" ngModel required>
+            <div *ngIf="address.invalid && (address.dirty || address.touched)" class="text-danger">
+                <span *ngIf="address.errors?.['required']">Address is required.</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" class="form-control" id="phoneNumber" #phoneNumber="ngModel" name="phoneNumber" ngModel
+                required pattern="[0-9]{10}">
+            <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="text-danger">
+                <span *ngIf="phoneNumber.errors?.['required']">Phone number is required.</span>
+                <span *ngIf="phoneNumber.errors?.['pattern']">Phone number should be a 10-digit number.</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="licenseNumber">License Number:</label>
+            <input type="text" class="form-control" id="licenseNumber" #licenseNumber="ngModel" name="licenseNumber"
+                ngModel required pattern="[A-Z0-9]+">
+            <div *ngIf="licenseNumber.invalid && (licenseNumber.dirty || licenseNumber.touched)" class="text-danger">
+                <span *ngIf="licenseNumber.errors?.['required']">License Number is required.</span>
+                <span *ngIf="licenseNumber.errors?.['pattern']">
+                    License Number should contain only letters and numbers.
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="paymentInformation">Payment Information:</label>
+            <input type="text" class="form-control" id="paymentInformation" #paymentInformation="ngModel"
+                name="paymentInformation" ngModel required>
+            <div *ngIf="paymentInformation.invalid && (paymentInformation.dirty || paymentInformation.touched)"
+                class="text-danger">
+                <span *ngIf="paymentInformation.errors?.['required']">Payment Information is required.</span>
+
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-12 text-center">
+                <button type="submit" class="btn btn-warning" [disabled]="!updateForm.valid">Register</button>
+            </div>
+        </div>
+    </form>
+</div> 
+
+
+
+
+
+
+
+
+
+ 
+    

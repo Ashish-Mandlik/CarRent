@@ -1,0 +1,117 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <img src="assets/logo.png" height="80px" width="100px" alt="Logo" style="border-radius: 8px;">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav" [ngClass]="{'show': navbarOpen}">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item text-white" style="font-weight: bold;">
+                  <i class="bi bi-person me-2"></i> Car-Rent
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-person me-2"></i>admin@gmail.com
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" (click)="goToLoginPage()" v>
+                        <i class="bi bi-box-arrow-right me-2"></i>Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br><br><br>
+
+
+<!-- table  -->
+
+<div class="container xtable">
+    <h2 class="text-center text-white my-4  py-2">List of Cars</h2>
+    <table class="table table-bordered  ">
+        <thead class=" text-white bg-warning">
+            <tr>
+                <th>ID</th>
+                <th>License Number</th>
+                <th>Manufacturer</th>
+                <th>Model</th>
+                <th>Base Price</th>
+                <th>Price Per hours</th>
+                <th>security Deposit</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody class=" text-white">
+            <tr *ngFor="let car of carList" class="Xtr">
+                <td>{{ car.id }}</td>
+                <td>{{ car.carLicenseNumber }}</td>
+                <td>{{ car.manufacturer }}</td>
+                <td>{{ car.model }}</td>
+                <td>{{ car.basePrice }}</td>
+                <td>{{car.pph}}</td>
+                <td>{{car.securityDeposit}}</td>
+                <td>
+                    <!-- <button class="btn btn-danger btn-md"
+                        (click)="deleteCar(car.id)">Delete</button>&nbsp;&nbsp;&nbsp;&nbsp; -->
+                    <button class="btn btn-primary btn-md" (click)="updateCar(car)">Update</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-success btn-md" (click)="InsertCar()" style="margin-bottom: 20px;">Insert Car</button>
+</div>
+
+
+<br><br><br>
+<!-- find car are booked in rental table based on car licenses number  -->
+<div class="container">
+
+</div>
+<div class="container">
+    <h2 class="text-center text-white my-4 bg-secondary py-2">List of Rentals Based on Car license Number</h2>
+    <form (ngSubmit)="searchCars()">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Enter car license number"
+                [(ngModel)]="carLicenseNumber" name="carLicenseNumber">&nbsp;&nbsp;
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<br>
+
+<div class="container xtable">
+    <h2 class="text-center text-white my-4  py-2">Rental Data Based On Car License Number</h2>
+    <table class=" table table-bordered" style="margin-bottom: 20px;">
+        <thead class="text-white bg-warning">
+            <tr>
+                <th>ID</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Price</th>
+                <th>User Id</th>
+                <th>User Name</th>
+            </tr>
+        </thead>
+        <tbody class=" text-white">
+            <tr *ngFor="let r of RentalList" class="Xtr">
+                <td>{{ r.id }}</td>
+                <td>{{ r.startDate }}</td>
+                <td>{{ r.endDate }}</td>
+                <td>{{ r.price }}</td>
+                <td>{{r.user.id}}</td>
+                <td>{{r.user.firstName}} {{r.user.lastName}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+</div>

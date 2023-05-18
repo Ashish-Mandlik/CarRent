@@ -1,0 +1,46 @@
+@media (max-width: 991.98px) {
+    .navbar-expand-lg .navbar-nav .dropdown-menu {
+      position: absolute;
+      right: 0;
+      left: auto;
+    }
+  }
+
+  a:hover{
+    background-color: #F1F6F9;
+    color:black;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+a{
+    margin-right: 30px;
+    border-radius: 10px;
+}
+  
+  
+  /* .navbar-brand img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .dropdown-menu-end {
+    right: 0;
+    left: auto;
+  }
+  
+  .dropdown-menu a:hover {
+    background-color: #f0f0f0;
+  }
+   */
+
+.findcar{
+  background-color: rgba(32, 46, 69, 0.9); 
+  border-radius: 20px;
+  color:white;
+}
+.carCard{
+  background-color: rgba(32, 46, 69, 0.9); 
+  border-radius: 20px;
+  color:black;
+}

@@ -1,0 +1,64 @@
+
+<div class="container">
+    <div class="row justify-content-center align-items-center vh-100">
+        
+        <div class="col-md-6 border1 p-4">
+            
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" novalidate>
+                <h2 class="text-center login-heading  mb-4">
+                    <i class="fas fa-user me-2 fa-1x"></i>&nbsp;
+                    <span>Login</span>
+                </h2>
+               
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="email"
+                        ngModel #emailInput="ngModel" pattern="^[a-zA-Z0-9._%+-]+@gmail.com$">
+                    <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="text-danger">
+                        <span *ngIf="emailInput.errors?.['email']">Invalid email address.</span>
+                        <span *ngIf="emailInput.errors?.['required']">Email is required.</span>
+                        <span *ngIf="emailInput.errors?.['pattern']">Only @gmail.com
+                            emails are allowed.</span>
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" required
+                        [(ngModel)]="password" #passwordInput="ngModel" minlength="6" maxlength="12"
+                        pattern="^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[^\w\s]).{6,12}$" />
+                    <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)"
+                        class="text-danger">
+                        <span *ngIf="passwordInput.errors?.['required']">Password is required.</span>
+                        <span *ngIf="passwordInput.errors?.['minlength']">Password should have at least 6
+                            characters.<br></span>
+                        <span *ngIf="passwordInput.errors?.['maxlength']">Password should have at most 12
+                            characters.<br></span>
+                        <span *ngIf="passwordInput.errors?.['pattern']">Password should contain at least one uppercase
+                            letter, one symbol, and one number.</span>
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="role">Role:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="role" value="admin" [(ngModel)]="role"
+                            required>
+                        <label class="form-check-label" for="role">Admin</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="role" value="user" [(ngModel)]="role"
+                            required>
+                        <label class="form-check-label" for="role">User</label>
+                    </div>
+                </div>
+                <br>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-warning" [disabled]="!loginForm.valid">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

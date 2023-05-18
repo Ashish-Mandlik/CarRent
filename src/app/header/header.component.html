@@ -1,0 +1,215 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <img src="./assets/logo.png" alt="Logo" height="80px" width="100px" style="border-radius: 8px;" />
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+      aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01" [ngClass]="{'show': navbarOpen}">
+
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item text-white" style="font-weight: bold;margin-top: 10px;">
+          <i class="bi bi-person me-2"></i>Car-Rent
+        </li>&nsbp
+        <li class="nav-item">
+          <a class="nav-link" href="#Home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#service">Service</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#team">Team</a>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link " routerLink="login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="user-registration">Register</a>
+        </li>
+        <!-- <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-person me-2"></i>Forgot Password</a>
+                </li> -->
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<!-- video  -->
+<div id="Home">
+  <video width="100%" autoplay loop muted style="margin-bottom: 0;">
+    <source
+      src="https://assets.mixkit.co/videos/preview/mixkit-luxury-white-sports-car-in-the-highway-at-sunset-35540-large.mp4"
+      type="video/mp4" />
+  </video>
+</div>
+
+<!-- video End  -->
+<!-- sevices  -->
+<div class="container1" id="service">
+  <h1 class="text-warning">Our Services</h1>
+  <div class="row">
+    <div class="service bg-white">
+      <i class="fa-solid fa-car text-warning "></i>
+      <h2>Car Rental</h2>
+      <p> We offer a wide selection of vehicles for rent, including sedans, SUVs, vans, and luxury cars.</p>
+    </div>
+    <div class="service bg-white ">
+      <i class="fa-solid fa-clock text-warning"></i>
+      <h2>Flexible Rental Durations</h2>
+      <p>We Offer flexibility in rental periods,allowing customers to rent a vehicle for hours, days, weeks, or even
+        months.
+        This accommodates different customer requirements, whether they need a car for a short trip or an extended
+        vacation. </p>
+    </div>
+
+    <div class="service bg-white">
+      <i class="fa-solid fa-business-time text-warning"></i>
+      <h2>24/7 Customer Support</h2>
+      <p> Provide a dedicated helpline or
+        support channel to address inquiries, reservations,
+        or any issues that may arise during the rental period.</p>
+    </div>
+    <div class="service bg-white">
+      <i class="fa-solid fa-handshake text-warning"></i>
+      <h2>Terms and Conditions</h2>
+      <p>We typically have specific terms and conditions that customers must adhere to. These include minimum age
+        requirements,
+        driver's license validity, rental duration, mileage limitations,
+        and any additional fees or charges. </p>
+    </div>
+    <div class="service bg-white">
+      <i class="fa-solid fa-credit-card text-warning"></i>
+      <h2>Payment and Fees</h2>
+      <p> Rental rates are usually charged on a daily or weekly basis
+        and can vary depending on the vehicle type, location, and
+        rental duration. Additional fees may apply for services like
+        additional drivers, fuel charges, tolls, or late returns.</p>
+    </div>
+  </div>
+</div>
+<!-- services End  -->
+
+<!-- Team  -->
+<div id="team" class=" row justify-content-center d-flex align-items-center col-md-12 bg-white "
+  style="margin:auto;width:100%;padding-top: 20px;">
+  <h2 class=" text-black text-center  " style="text-decoration: underline;">Developer Team</h2>
+  <p class=" text-secondary text-center">Who are in extremely love with eco friendly system.</p>
+  <div class="col-md-3">
+    <div class="thumb" style="text-align: center;">
+      <img class="img-fluid" src="../assets/3.jpg" alt="" style="height: 200px;border-radius: 10px;">
+      <h4 class="text-black">Aayushka Zunjur</h4>
+      <p class="text-warning">Developer</p>
+    </div>
+  </div>
+  <div class="col-md-3 single-team">
+    <div class="thumb" style="text-align: center;">
+      <img class="img-fluid" src="../assets/4.jpg" alt="" style="height: 200px;border-radius: 10px;">
+      <h4 class="text-black">Abhishek HS</h4>
+      <p class="text-warning">Developer</p>
+    </div>
+  </div>
+  <div class="col-md-3 single-team">
+    <div class="thumb" style="text-align: center;">
+      <img class="img-fluid" src="../assets/1.jpg" alt="" style="height: 200px;border-radius: 10px;">
+      <h4 class="text-black">Ashish Mandlik</h4>
+      <p class="text-warning">Developer</p>
+    </div>
+  </div>
+  <div class="col-md-3 single-team">
+    <div class="thumb" style="text-align: center;">
+      <img class="img-fluid" src="../assets/2.jpg" alt="" style="height: 200px;border-radius: 10px;">
+      <h4 class="text-black">Deepanshu Sharma</h4>
+      <p class="text-warning">Developer</p>
+    </div>
+  </div>
+</div>
+<!-- Team End  -->
+
+
+<!-- Footer -->
+<div class="blockcode">
+  <footer class="page-footer shadow">
+    <div class="d-flex flex-column mx-auto py-5" style="width: 80%">
+      <div class="d-flex flex-wrap justify-content-between">
+
+        <div>
+          <!-- <a href="/" class="d-flex align-items-center p-0 text-dark"> -->
+          <img alt="logo" src="../assets/logo.png" width="60px" style="border-radius: 5px;" />
+          <span class="ms-3 h5 font-weight-bold text-warning">Car Rental</span>
+          <!-- </a> -->
+          <p class="my-3 text-white " style="width: 250px">
+            We are creating High Quality Resources and tools to Aid developers during the
+            developement of their projects
+          </p>
+          <span class="mt-4">
+            <button class="btn btn-dark btn-flat p-2">
+              <i class="fa fa-facebook"></i>
+            </button>&nbsp;
+            <button class="btn btn-dark btn-flat p-2">
+              <i class="fa fa-twitter"></i>
+            </button>&nbsp;
+            <button class="btn btn-dark btn-flat p-2">
+              <i class="fa fa-instagram"></i>
+            </button>&nbsp;
+          </span>
+        </div>
+
+        <div>
+          <p class="h5 mb-4 text-warning" style="font-weight: 600">Feature</p>
+          <ul class="p-0" style="list-style: none; cursor: pointer">
+            <li class="my-2">
+              <!-- <a class="text-white" href="/">About Us</a> -->
+              <span class="text-white">Wide selection of vehicles</span>
+            </li>
+            <li class="my-2">
+              <!-- <a class="text-white" href="/">Contact</a> -->
+              <span class="text-white">Flexible rental periods</span>
+            </li>
+            <li class="my-2">
+              <!-- <a class="text-white" href="/">Blog</a> -->
+              <span class="text-white">24/7 customer support</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="h5 mb-4 text-warning" style="font-weight: 600">About Us</p>
+          <ul class="p-0" style="list-style: none; cursor: pointer">
+            <li class="my-2">
+              <span class="text-white">Address: 123 Main Street, Pune</span>
+            </li>
+            <li class="my-2">
+              <span class="text-white">Phone: 555-1234</span>
+            </li>
+            <li class="my-2">
+              <span class="text-white">Email: info@rentacar.com</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="h5 mb-4 text-warning" style="font-weight: 600">Customer Support:</p>
+          <ul class="p-0" style="list-style: none; cursor: pointer">
+            <li class="my-2">
+              <span class="text-white">Phone: 555-5678</span>
+            </li>
+            <li class="my-2">
+              <span class="text-white">Email: support@rentacar.com</span>
+            </li>
+            <li class="my-2">
+              <span class="text-white">Live Chat: Available on the website </span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      <small class="text-center mt-5 text-success">&copy; Car-Rent, 2020. All rights reserved.</small>
+    </div>
+  </footer>
+</div>

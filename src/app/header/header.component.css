@@ -1,0 +1,90 @@
+a:hover{
+    background-color: #F1F6F9;
+    color:black;
+    border-radius: 10px;
+    text-align: center;
+    padding:10px
+    
+
+}
+a{
+    margin-right: 30px;
+    border-radius: 10px;
+    padding:10px;
+    cursor: pointer;
+}
+
+
+/* home  */
+
+
+/* services  */
+.container1{
+    width: 100%;
+    background-color: rgba(32, 46, 69, 0.9) ;
+    height: 100%;
+    padding: 5% 8%;
+    margin-top: -6px;
+    
+}
+.container1 h1{
+    text-align: center;
+    padding-top: 2%;
+    margin-bottom: 60px;
+    font-weight: 400px;
+    position: relative;
+}
+.container1 h1::after{
+    content: '';
+    background-color:lavenderblush;
+    width: 100px;
+    height: 5px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.row{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 30px;
+    margin :10px;
+
+  
+
+}
+.service{
+    text-align: center;
+    padding: 25px 10px;
+    border-radius: 5px;
+    font-size: 10px;
+    cursor: pointer;
+    background: transparent;
+    transition: transform 0.5s, background 0.5s;
+}
+.service i{
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: beige;
+}
+.service h2{
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.service:hover{
+    background: white;
+    color: black;
+    transform: scale(1.05);
+}
+.service:hover i{
+    color:black ;
+}
+
+/* footer  */
+.blockcode{
+    background-color: rgba(32, 46, 69, 0.9) ;
+}
+
+
+

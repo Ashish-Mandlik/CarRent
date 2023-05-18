@@ -1,0 +1,30 @@
+.container {
+    /* border: 2px solid #007bff;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px; */
+    padding: 70px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    background-color: rgba(32, 46, 69, 0.9); 
+    border-radius: 20px;
+    color:white;
+    
+    
+  }
+  .container h2{
+    /* text-align: center;
+    background-color: #007bff; */
+    text-align: center;
+    font-weight: bolder;
+    
+  }
+
+  .container input {
+    background-color: #fff;
+  }
+  
+
+  
+  

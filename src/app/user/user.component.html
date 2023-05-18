@@ -1,0 +1,201 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+       <img src="assets/logo.png" height="80px" width="100px" alt="Logo"
+                style="border-radius: 8px;">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav" [ngClass]="{'show': navbarOpen}">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item text-white" style="font-weight: bold;">
+                    <i class="bi bi-person me-2"></i>Car-Rent
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-person me-2"></i>{{user.email}}
+                    </a>
+                </li>
+                <i class="bi bi-person me-2"></i>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="goToUpdateUser()">
+                        <i class="bi bi-person me-2"></i> Update Profile
+                    </a>
+
+                </li>
+                <i class="bi bi-person me-2"></i>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="goToLoginPage()" v>
+                        <i class="bi bi-box-arrow-right me-2"></i>Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- find car in between dates  -->
+<div class="container findcar">
+    <h2 class="text-center text-white my-4  py-2">Cars available in given date range</h2>
+    <form (ngSubmit)="onSubmit()">
+        <div class="row my-4">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="start-date">Start Date:</label>
+                    <input type="date" class="form-control" id="start-date" name="start-date" [(ngModel)]="startDate"
+                        required min="{{ startDate1 }}">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="end-date">End Date:</label>
+                    <input type="date" class="form-control" id="end-date" name="end-date" [(ngModel)]="endDate"
+                        required min="{{ startDate1 }}">
+                </div>
+            </div>
+        </div>
+        <div class="row my-4">
+            <div class="col-md-12 d-flex justify-content-center">
+                <button type="submit" class="btn btn-warning" style="margin-bottom: 10px;">Find Car</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+<!-- car cards -->
+<br><br><br>
+<div class="container mb-4 carCard">
+    <h2 class="text-center text-white my-4  py-2">List of Cars</h2>
+    <hr>
+    <div class="row">
+        <div class="col-md-4 mb-4" *ngFor="let car of carList">
+            <div class="card">
+                <img src="../assets/car-1.png" class="card-img-top" alt="Car Image">
+                <div class="card-body">
+                    <h5 class="card-title">Car Details</h5>
+                    <!-- <p class="card-text">ID: {{car.id}}</p> -->
+                    <p class="card-text">Base Price: {{car.basePrice}}/day</p>
+                    <p class="card-text">Car License Number: {{car.carLicenseNumber}}</p>
+                    <p class="card-text">Manufacturer: {{car.manufacturer}}</p>
+                    <p class="card-text">Model: {{car.model}}</p>
+                    <p class="card-text">Price Per Hour: {{car.pph}}/hour</p>
+                    <p class="card-text">Security Deposit: {{car.securityDeposit}}</p>
+                    <a (click)="openModal(car)" class="btn btn-warning">Calculate Price</a> &nbsp;&nbsp;
+                    <a (click)="rentCar(car)" class="btn btn-success">Rent Car</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- modal  -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Total Price Calculation </h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closeModal()"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                Total No. of days : {{diffInDays}} <br>
+                Total BasePrice per day : {{totalbasedPrice}}<br>
+                total price per hours :{{totalhoursPrice}}<br>
+                <hr>
+                Total={{total}}
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                    (click)="closeModal()">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- modal2  -->
+<div class="modal" id="myModal2">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header ">
+                <h4 class="modal-title">Are you want to book car? </h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closeModal2()"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                Total No. of days : {{diffInDays}} <br>
+                Name of User : {{user.firstName}} {{user.lastName}}<br>
+                Email :{{user.email}}<br>
+                <hr>
+                Total={{total}}
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+
+                <google-pay-button environment="TEST" buttonColor="black" buttonType="buy" buttonSizeMode="fill"
+                    style="width: 348px; height: 44px;" [paymentRequest]="{
+                        apiVersion: 2,
+                        apiVersionMinor: 0,
+                        allowedPaymentMethods: [
+                          {
+                            type: 'CARD',
+                            parameters: {
+                              allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+                              allowedCardNetworks: ['MASTERCARD', 'VISA'],
+                            },
+                            tokenizationSpecification: {
+                              type: 'PAYMENT_GATEWAY',
+                              parameters: {
+                                gateway: 'example',
+                                gatewayMerchantId: 'exampleGatewayMerchantId',
+                              },
+                            },
+                          },
+                        ],
+                        merchantInfo: {
+                          merchantId: '12345678901234567890',
+                          merchantName: 'Demo Merchant',
+                        },
+                        transactionInfo: {
+                          totalPriceStatus: 'FINAL',
+                          totalPriceLabel: 'Total',
+                          totalPrice: '100.00',
+                          currencyCode: 'USB',
+                          countryCode: 'US',
+                        },}
+                        " (loadpaymentdata)="onLoadPaymentData($event)">
+                </google-pay-button>
+
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                    (click)="closeModal2()">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

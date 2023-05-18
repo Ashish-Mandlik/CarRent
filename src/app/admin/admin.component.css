@@ -1,0 +1,21 @@
+a:hover{
+    background-color: #F1F6F9;
+    color:black;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+
+}
+a{
+    margin-right: 30px;
+    border-radius: 10px;
+}
+
+.xtable{
+    background-color: rgba(32, 46, 69, 0.9); 
+    border-radius: 20px;
+    color:white;
+}
+tr:hover{
+    color:#DC5F00;
+}
